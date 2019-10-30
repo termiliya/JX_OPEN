@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>登录</title>
+		<link rel="stylesheet" href="css/login.css" />
+		<script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script src="js/jquery-3.3.1.min.js" language="JavaScript"></script>
+		
+		<style type="text/css">span{height: 1px;}</style>
+	</head>
+
+	<body>
+		<form method="post" action="login.php" name="form1" onsubmit="return submitB()">
+		<div class="top"></div>
+		<div class="content">
+			<div class="login">
+				<div class="title">登录</div>
+				<div class="line">
+					<img class="smallImg" src="img/icon1.png" />
+					<input placeholder="请输入账号" type="text" id="username" name="user" onblur="checkUser()"/>
+				</div>
+				<span id="user_pass"></span>
+				<div class="line">
+					<img class="smallImg" src="img/icon2.png" />
+					<input placeholder="请输入密码" type="password" id="password" name="pass" onblur="checkpwd()"/>
+				</div>
+				<span id="pwd_pass"></span>
+				<br/>
+				
+				<input type="submit" id="submit" class="logBut"  value="登&nbsp;&nbsp;录"  />
+				<input type="button" class="logBut" value="注&nbsp;&nbsp;册" onclick="reg()" />
+			</div>
+		</div>
+		</form>
+		<script>
+			var surePwd_pass = document.getElementById("surePwd_pass");
+			var user_pass=document.getElementById("user_pass");
+			var pwd_pass=document.getElementById("pwd_pass");
+			var checkcode=document.getElementById("checkcode");
+			function reg(){location="reg.html";}
+			function checkUser(){
+    				//如果昵称未输入，则提示输入昵称
+				    if(document.getElementById("username").value==""){
+				        user_pass.style.fontSize = "13px";
+        				user_pass.style.color="red";
+				        user_pass.style.textAlign="right";
+				        user_pass.style.lineHeight="2em";
+				        user_pass.style.marginTop='0.05%'
+				        user_pass.innerHTML = '你还没有填写用户名哦。';
+				        user_pass.style.display="block";
+						return false;
+				    }
+				    else {
+				        user_pass.style.display="none";
+				        user_pass.innerHTML='';
+				    }
+				}
+				function checkpwd(){
+    				//如果昵称未输入，则提示输入昵称
+				    if(document.getElementById("password").value==""){
+				        pwd_pass.style.fontSize = "13px";
+						pwd_pass.style.color="red";
+				        pwd_pass.style.textAlign="right";
+				        pwd_pass.style.lineHeight="2em";
+				        pwd_pass.innerHTML = '你还没有填写密码哦。';
+				        pwd_pass.style.display="block";
+						return false;
+				    }
+				    else {
+				        pwd_pass.style.display="none";
+				        pwd_pass.innerHTML='';
+				    }
+				}
+				
+
+
+	function  submitB(){
+	
+    if(document.getElementById("username").value==""){
+        user_pass.style.fontSize = "13px";
+        user_pass.style.color="blue";
+		user_pass.style.textAlign="right";
+		user_pass.style.lineHeight="2em";
+		user_pass.style.marginTop='0.05%'
+	    user_pass.innerHTML = '你还没有填写用户名哦。';
+		user_pass.style.display="block";
+       // user.focus();
+        return false;
+    }
+    if(document.getElementById("password").value==""){
+        pwd_pass.style.fontSize = "13px";
+		pwd_pass.style.color="blue";
+		pwd_pass.style.textAlign="right";
+		pwd_pass.style.lineHeight="2em";
+		pwd_pass.innerHTML = '你还没有填写密码哦。';
+		pwd_pass.style.display="block";
+        //pwd.focus();
+        return false;
+    }
+    if(document.getElementById("username").value=="admin"&&document.getElementById("password").value=="123")
+    	{alert("登陆成功");}
+    else{alert("输入账号或密码错误");window.open('login.html', '_self');return false;}
+}
+		
+		
+		</script>
+		
+		
+	</body>
+
+</html>
